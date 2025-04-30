@@ -8,24 +8,14 @@ using Object = UnityEngine.Object;
 
 namespace ReWorkflow;
 
-public class SelectionControllerPatch
-{
-    public static HashSet<BaseObject> original;
-
-    public static void PatchShitUp()
-    {
-        var harmony = new Harmony("kvl.reworkflow");
-        harmony.PatchAll();
-    }
-}
-
 [HarmonyPatch(typeof(SelectionController))]
 [HarmonyPatch(nameof(SelectionController.Copy))]
 public static class CopyEventPatch
 {
+    public static HashSet<BaseObject> original;
     public static void Postfix()
     {
-        SelectionControllerPatch.original = SelectionController.CopiedObjects;
+        CopyEventPatch.original = SelectionController.CopiedObjects;
     }
 }
 
@@ -35,7 +25,7 @@ public static class PasteEventPatch
 {
     public static void Prefix()
     {
-        SelectionController.CopiedObjects = SelectionControllerPatch.original;
+        SelectionController.CopiedObjects = CopyEventPatch.original;
         SelectionController.GetObjectTypes(SelectionController.CopiedObjects.AsEnumerable(), out _, out var hasEv,
             out _);
         if (!hasEv)

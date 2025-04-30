@@ -21,6 +21,9 @@
         <Reference Include="0Harmony">
             <HintPath>$(ChromapperDir)\ChroMapper_Data\Managed\0Harmony.dll</HintPath>
         </Reference>
+        <Reference Include="Intersections">
+            <HintPath>$(ChroMapperDir)\ChroMapper_Data\Managed\Intersections.dll</HintPath>
+        </Reference>
         <Reference Include="Plugins">
             <HintPath>$(ChroMapperDir)\ChroMapper_Data\Managed\Plugins.dll</HintPath>
         </Reference>
@@ -46,11 +49,6 @@
         <Reference Include="Microsoft.CSharp"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Xml"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')"/>
-        <Content Include="ChroMapper-ReWorkflow.csproj.user" Condition="Exists('ChroMapper-ReWorkflow.csproj.user')"/>
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">

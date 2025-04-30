@@ -1,4 +1,4 @@
-﻿using UnityEngine.SceneManagement;
+﻿using HarmonyLib;
 
 namespace ReWorkflow;
 
@@ -8,7 +8,8 @@ public class Main
     [Init]
     private void Init()
     {
-        SelectionControllerPatch.PatchShitUp();
+        var harmony = new Harmony("kvl.cm.reworkflow");
+        harmony.PatchAll();
     }
 
     [Exit]
