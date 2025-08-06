@@ -1,14 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     
     <PropertyGroup>
-        <Version>0.1.0.0</Version>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
+        <FileVersion>0.1.0.0</FileVersion>
         <RootNamespace>ReWorkflow</RootNamespace>
         <AssemblyName>ReWorkflow</AssemblyName>
         <TargetFramework>net48</TargetFramework>
         <LangVersion>13</LangVersion>
         <OutputType>Library</OutputType>
         <Nullable>warnings</Nullable>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
@@ -53,7 +54,7 @@
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-      <Exec Command="cp -f $(OutDir)$(TargetFileName) $(ChroMapperDir)Plugins/$(TargetFileName)" />
+      <Exec Command="cp -f $(OutDir)$(TargetFileName) $(ChroMapperDir)Plugins/$(TargetFileName)&#xA;~/ChroMapper/CML-Linux" />
     </Target>
 
 </Project>

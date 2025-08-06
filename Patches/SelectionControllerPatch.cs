@@ -27,7 +27,7 @@ public static class PasteEventPatch
     {
         SelectionController.CopiedObjects = CopyEventPatch.original;
         SelectionController.GetObjectTypes(SelectionController.CopiedObjects.AsEnumerable(), out _, out var hasEv,
-            out _);
+            out _, out _);
         if (!hasEv)
             return;
         var ep = Object.FindObjectOfType<EventPlacement>();
