@@ -1,10 +1,12 @@
 # ChroMapper ReWorkflow
 
-A plugin that just change workflow of CM to be more inline with official editor
+A plugin that just change workflow of CM to be more inline with official editor + QoL
 
 Features:
 
-* Just events so far
+* Event hover lane paste
+* Flexible v3 obstacle placement
+* Editing mode switch
 
 Known Issues:
 
