@@ -9,6 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+xdelta3.so
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
