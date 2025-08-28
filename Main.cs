@@ -47,7 +47,7 @@ public class Main
       _gameObjects[EditingMode.Gameplay] =
       [
          Object.FindObjectOfType<NoteGridContainer>().GridTransform.gameObject,
-         Object.FindObjectOfType<NJSEventGridContainer>().GridTransform.parent.gameObject,
+         // Object.FindObjectOfType<NJSEventGridContainer>().GridTransform.parent.gameObject,
          Object.FindObjectOfType<GridOrderController>().transform.Find("Note Grid").gameObject
       ];
 
@@ -101,13 +101,19 @@ public class Main
          var toggle = _editingMode == mode;
          foreach (var go in _gameObjects[mode])
          {
-            go.SetActive(toggle);
+            // go.SetActive(toggle);
             var gridChild = go.GetComponent<GridChild>();
             if (gridChild == null) continue;
             if (toggle)
+            {
                GridOrderController.RegisterChild(gridChild);
+            }
             else
+            {
                GridOrderController.DeregisterChild(gridChild);
+               // apparently deactive is bad, send them to space instead
+               gridChild.transform.localPosition = new Vector3(0, 69420, 69420);
+            }
          }
       }
 
